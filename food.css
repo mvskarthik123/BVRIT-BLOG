@@ -1,0 +1,94 @@
+#fod{
+    padding-bottom: 50px;
+    width: 700px;
+     border-radius: 15px;
+         margin-left: 50px;
+          padding-left: 60px;
+          padding-right: 60px;
+          margin-bottom: 40px;
+           font-weight: 700;
+           background-color: rgb(147, 102, 48);
+           border-radius: 20px;
+           padding-top: 20px;
+}
+
+#fod2{
+    padding-bottom: 50px;
+    width: 700px;
+     border-radius: 15px;
+         margin-left: 700px;
+          padding-left: 60px;
+          padding-right: 60px;
+          margin-bottom: 40px;
+           font-weight: 700;
+           background-color: rgb(147, 102, 48);
+           border-radius: 20px;
+           padding-top: 20px;
+}
+
+body{
+    background-image: url("photos/donut\ background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+  }
+
+  .head{
+    text-align: center;
+    color: rgb(245, 245, 244);
+    text-decoration: underline;
+  }
+
+  .container {
+    position: relative;
+    max-width: none;
+    width: 100%; /* Adjust the width as needed */
+    height:100%; /* Adjust the height as needed */
+     /* Center the container */
+     padding: 0%;
+}
+
+.background-image {
+    width: 100%;
+   
+   
+}
+
+.overlay-video {
+    position: absolute;
+    top: 40%; /* Center the video vertically */
+    left: 80%; /* Center the video horizontally */
+    transform: translate(-50%, -50%);
+    width: 35%; /* Adjust the size as needed */
+    height: auto;
+    
+    z-index: 1; /* Higher z-index to place it on top */
+}
+
+.overlay-video video {
+    width: 100%;
+    height: auto;
+}
+.foot{
+    background-color: rgb(142, 202, 230);
+    width:100%;
+    height: 80px;
+    text-align: center;
+    border-top: 100px;
+   }
+
+   .explore a {
+    color: rgb(247, 67, 18);
+    border-bottom: 1px solid rgb(247, 67, 18);
+   
+  }
+  .navbar-nav .nav-link:hover {
+      
+    border-bottom: 1px solid rgb(247, 67, 18);
+  }
+
+ 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header data-aos="flip-up" data-aos-duration="600">
+        <h1>THE BV BLOG.</h1>
+    </header>
+    <nav>
+        <ul class="nav-bar" data-aos="fade-left" data-aos-duration="1500">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="explore.html">EXPLORE</a></li>
+            <li><a href="quizinfo.html">A LITTLE QUIZ</a></li>
+            <li><a href="profile.php">MY PROFILE</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>My Profile</h1>
+
+        <div class="section personal-details">
+            <h2>Personal Details</h2>
+            <p>Name: <?php echo $user['full_name']; ?></p>
+            <p>Email: <?php echo $user['email']; ?></p>
+            <p>Phone: <?php echo $user['guardian_number']; ?></p>
+        </div>
+
+        <div class="section my-reviews">
+            <h2>My Reviews</h2>
+            <?php if ($reviews_result && $reviews_result->num_rows > 0): ?>
+                <ul>
+                    <?php while ($review = $reviews_result->fetch_assoc()): ?>
+                        <li>
+                            <p><?php echo $review['review_text']; ?></p>
+                            <small>Posted on: <?php echo $review['review_date']; ?></small>
+                        </li>
+                    <?php endwhile; ?>
+                </ul>
+            <?php else: ?>
+                <p>You haven't written any reviews yet.</p>
+            <?php endif; ?>
+        </div>
+
+        <div class="section logout">
+            <h2>Logout</h2>
+            <a href="logout.php">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

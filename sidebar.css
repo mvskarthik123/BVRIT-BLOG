@@ -1,0 +1,29 @@
+.sidebar {
+    width: 30rem; 
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: static;
+    margin-top: 0;
+    margin-bottom: 20px; /* Optional: add spacing at the bottom of the sidebar */
+    /* Set the height to match the main-content height */
+    height: 100%;
+    
+  }
+  
+  .sidebar img {
+    width: 100%; /* Full width of the sidebar */
+    height: 250px; /* Consistent height */
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+  
+  .sidebar img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.2);
+  }
+  

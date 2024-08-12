@@ -1,0 +1,124 @@
+*{
+margin: 0%;
+padding: 0%;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.img{
+  background-image: url(photos/bus-stop.jpg);
+  height:620px;
+  background-size: cover;
+  width:100%;
+  position: relative;
+ ;
+}
+
+.lotbg{
+  position: absolute;
+  top: 30px;
+  left :842px;
+  width: 630px;
+  height: 550px;
+  background-color: black;
+  border-bottom-left-radius:50% ;
+  border-top-left-radius:50% ;
+}
+.lotti{
+  position: relative;
+  top:100px;
+  left:150px;
+  height: 400px;
+
+}
+.ved{
+  height:100%;
+}
+.tittle{
+  position: inherit;
+  font-size: 60px;
+  color: aliceblue;
+  top: 200px;
+  left: 30px;
+ 
+}
+.head{
+  margin-bottom: 40px;
+}
+
+
+body{
+  background: linear-gradient(100deg ,rgb(114, 9, 183),rgb(76, 201, 240));
+  color:white;
+  margin: 0%;
+padding: 0%; 
+}
+.container{
+  height:300px;
+  width:600px;
+  margin: 50px;
+  margin-top: 0px;
+  
+}
+.container:hover > .card{
+  cursor: pointer;
+  transform: rotateY(180deg);
+}
+
+.card{
+  height:100%;
+  width:100%;
+  position :relative;
+  transition: transform 1500ms;
+  transform-style:preserve-3d ;/*important and new*/
+  border-radius: 2rem;
+}
+.front, .back{
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow:0px 0px 5px 2px rgb(50,50,50,1);
+  position:absolute;
+  backface-visibility: hidden;/*important and new, it makes the card invissible if it flips back */
+}
+.front{
+  
+  background-size: cover;
+ 
+}
+.back{
+  background-color: rgb(154, 103, 203);
+  transform: rotateY(180deg); /*it makes the card back*/
+  padding: 10px;
+
+  
+}
+.box{
+  display :flex;
+}
+.disk{
+    font-size: 60px;
+    margin-left:140px;
+    margin-top: 110px;
+    font-weight: 500;
+}
+.photo-container.hidden .photo {
+  opacity: 0;
+  transform: translateX(-55%);
+}
+.foot{
+  background-color: rgb(142, 202, 230);
+  width:100%;
+  height: 80px;
+  text-align: center;
+  border-top: 90px;
+ }
+ .explore a {
+  color: rgb(247, 67, 18);
+  border-bottom: 1px solid rgb(247, 67, 18);
+  margin-left:3px;
+  margin-right: 3px;
+}
+.navbar-nav .nav-link:hover {
+    
+  border-bottom: 1px solid rgb(247, 67, 18);
+}

@@ -1,0 +1,72 @@
+/* Container for the photos */
+.photo-container {
+  display: flex;
+  justify-content: space-evenly;
+  overflow: hidden;
+ 
+}
+
+/* Individual photo */
+.photo {
+  flex: 0 0 20%; /* Each photo takes up 25% of the container width */
+  opacity: 1; /* Initial opacity */
+  animation: slide-in 1s ease-out forwards;
+  height: 350px;
+  width: 3px;
+  margin:10px;
+  border-radius: 2rem;
+  box-shadow: 0px 0px 5px rgb(14, 1, 1);
+
+
+}
+/* Animation for sliding in from the left */
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-55%);
+  }
+  60%{
+    opacity:1
+  }
+  
+  
+  100% {
+    transform: translateX(0);
+    opacity: 1; /* Final opacity */
+  }
+}
+
+/* Delay animation for each photo */
+.photo:nth-child(1) {
+  animation-delay: 0s;
+  opacity: 0;
+}
+
+.photo:nth-child(2) {
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.photo:nth-child(3) {
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+.photo:nth-child(4) {
+  animation-delay: 0.9s;
+  opacity: 0;
+}
+.photo-container.hidden .photo {
+  opacity: 0;
+  transform: translateX(-55%);
+}
+.explore a {
+  color: rgb(247, 67, 18);
+  border-bottom: 1px solid rgb(247, 67, 18);
+  margin-left:1px;
+  margin-right: 3px;
+}
+.navbar-nav .nav-link:hover {
+    
+  border-bottom: 1px solid rgb(247, 67, 18);
+}

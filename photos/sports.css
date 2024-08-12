@@ -1,0 +1,124 @@
+body{
+  background: linear-gradient(0.5turn,rgb(225, 203, 161),rgb(244, 238, 238));
+}
+
+.img{
+    background-image: url(photos/hai\ spo.jpg);
+    height:650px;
+    background-size: cover;
+    width:100%;
+    position: relative;
+   border-bottom-right-radius: 2rem;
+   border-bottom-left-radius: 2rem;
+
+  }
+  .tint {
+    background-color: rgba(21, 20, 19, 0.6);
+    background-blend-mode: multiply;
+  }
+
+  .f-image{
+    color:aliceblue
+  }
+  .tittle{
+    position:relative;
+    font-size: 50px;
+    color: aliceblue;
+    top: 140px;
+    left: 150px;
+    font-weight: 550;
+   
+  }
+  .tittle2{
+      font-size: 150px;
+      position: relative;
+      top:100px;
+      left:160px;
+      color: aliceblue;
+  }
+
+  .head{
+    margin-left: 50px;
+    font-size: 60px;
+    text-decoration: underline;
+    }
+
+    .isport{
+        height:200px;
+        width:350px;
+        background-color: rgb(9, 186, 186);
+        margin:10px;
+        margin-bottom: 5px;
+        animation: rotate 1.5s  infinite;
+        border-radius: 2rem;
+        animation-direction: alternate-reverse;
+        float: left;
+    }
+    .imgx{
+         height:60%;
+         width:50%;
+         position:relative;
+         background-size: cover;
+         border-radius: 2rem;;
+    }
+    .img1{
+        background-image: url(photos/spo2.png);
+        top:20px;
+        left:150px
+    }
+    .img2{
+        background-image: url(photos/spo3.png);
+        left:20px;
+        top:-60px;
+    }
+    .des{
+        font-size: 18px;
+        padding:40px;
+        padding-bottom: 0px;
+    }
+    .gymc{
+        height:300px;
+        width:500px;
+        border-radius: 2rem;
+        background-image: url(photos/gym\ bvrit.webp);
+        background-size: cover;
+        margin-left: 400px;
+    }
+    .head{
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    }
+    .foot{
+        background-color: rgb(142, 202, 230);
+        width:100%;
+        height: 70px;
+        text-align: center;
+        margin-top: 90px;
+       }
+       .hostelb{
+        display:flex;
+        text-align: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+      }
+      
+@keyframes rotate {
+  from {
+      transform: translateY(00px) ;
+      opacity: 1;
+      
+  }
+  to {
+      transform:  translateY(20px);
+      opacity:1;
+  }
+}
+.explore a {
+  color: rgb(247, 67, 18);
+  border-bottom: 1px solid rgb(247, 67, 18);
+  margin-left:3px;
+  margin-right: 3px;
+}
+.navbar-nav .nav-link:hover {
+    
+  border-bottom: 1px solid rgb(247, 67, 18);
+}

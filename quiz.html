@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="wad.css">
+    <style>
+      
+        .quiz-container {
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .quiz-content h2 {
+            font-size: 24px;
+        }
+
+        .quiz-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quiz-content ul li {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .quiz-content ul li:hover {
+            background-color: #f1f1f1;
+        }
+
+        .quiz-content ul li input {
+            margin-right: 10px;
+        }
+
+        .quiz-content ul li label {
+            cursor: pointer;
+        }
+
+        #submit-btn, #next-btn {
+            display: none;
+        }
+
+        #next-btn {
+            margin-left: 10px;
+        }
+
+        .score-container {
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A Little Quiz</h1>
+    </header>
+    <nav>
+        <ul class="nav-bar" data-aos="fade-left" data-aos-duration="1500">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="explore.html">EXPLORE</a></li>
+            <li><a href="quizinfo.html">A LITTLE QUIZ</a></li>
+            <li><a href="profile.php">YOUR PROFILE</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
+        </ul>
+    </nav>
+    <div class="quiz-container">
+        <div class="quiz-content">
+            <h2 id="question"></h2>
+            <ul id="choices"></ul>
+            <div>
+                <button id="next-btn" class="btn btn-primary">Next</button>
+                <button id="submit-btn" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+        <div class="score-container" id="score-container">
+            <h2>Your Score</h2>
+            <p id="score"></p>
+            <p id="result"></p>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        const questions = [
+            { question: "What is the full name of BVRIT?", choices: ["BV Raju Institute of Technology", "BV Reddy Institute of Technology", "BV Raju Institute of Engineering", "BV Raju University"], answer: 0 },
+            { question: "In which year was BVRIT established?", choices: ["1997", "1999", "2001", "2003"], answer: 1 },
+            { question: "Who is the founder of BVRIT?", choices: ["Dr. BV Raju", "Dr. PV Raju", "Dr. KV Raju", "Dr. NV Raju"], answer: 0 },
+            { question: "What is the motto of BVRIT?", choices: ["Excellence in Education", "Learn and Serve", "Knowledge is Power", "Education for All"], answer: 1 },
+            { question: "Where is BVRIT located?", choices: ["Hyderabad", "Vishakhapatnam", "Narsapur", "Warangal"], answer: 2 },
+            { question: "Which department is known for its robotics research in BVRIT?", choices: ["Mechanical Engineering", "Electrical Engineering", "Computer Science Engineering", "Electronics and Communication Engineering"], answer: 3 },
+            { question: "What is the annual tech fest of BVRIT called?", choices: ["Techno Fest", "Innovate", "Technotsav", "BVRIT Fest"], answer: 2 },
+            { question: "Which body accredits BVRIT?", choices: ["NBA", "AICTE", "UGC", "NAAC"], answer: 1 },
+            { question: "What is the name of the BVRIT library?", choices: ["Knowledge Hub", "Learning Resource Center", "Digital Library", "Central Library"], answer: 3 },
+            { question: "Which program is NOT offered by BVRIT?", choices: ["B.Tech", "M.Tech", "MBA", "MBBS"], answer: 3 }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            document.getElementById("question").textContent = `${currentQuestion + 1}. ${question.question}`;
+            const choicesList = document.getElementById("choices");
+            choicesList.innerHTML = "";
+            for (let i = 0; i < question.choices.length; i++) {
+                const choiceItem = document.createElement("li");
+                choiceItem.innerHTML = `<input type="radio" name="choice" id="choice${i}" value="${i}"> <label for="choice${i}" id="choice${i}-label">${question.choices[i]}</label>`;
+                choicesList.appendChild(choiceItem);
+            }
+
+            document.getElementById("next-btn").style.display = currentQuestion < questions.length - 1 ? "inline-block" : "none";
+            document.getElementById("submit-btn").style.display = currentQuestion === questions.length - 1 ? "inline-block" : "none";
+        }
+
+        function nextQuestion() {
+            const selectedChoice = document.querySelector('input[name="choice"]:checked');
+            if (!selectedChoice) {
+                alert("Please select an answer.");
+                return;
+            }
+
+            const selectedIndex = parseInt(selectedChoice.value);
+            const question = questions[currentQuestion];
+
+            if (selectedIndex === question.answer) {
+                score++;
+            }
+
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            }
+        }
+
+        function submitQuiz() {
+            const selectedChoice = document.querySelector('input[name="choice"]:checked');
+            if (!selectedChoice) {
+                alert("Please select an answer.");
+                return;
+            }
+
+            const selectedIndex = parseInt(selectedChoice.value);
+            const question = questions[currentQuestion];
+
+            if (selectedIndex === question.answer) {
+                score++;
+            }
+
+            showScore();
+        }
+
+        function showScore() {
+            const scoreContainer = document.getElementById("score-container");
+            const quizContent = document.querySelector(".quiz-content");
+
+            quizContent.style.display = "none";
+            scoreContainer.style.display = "block";
+
+            const scoreElement = document.getElementById("score");
+            const resultElement = document.getElementById("result");
+
+            scoreElement.textContent = `${score} out of ${questions.length}`;
+
+            if (score >= 9) {
+                resultElement.textContent = "Excellent! You know your college very well.";
+            } else if (score >= 6) {
+                resultElement.textContent = "Great job! You have a decent knowledge about your college.";
+            } else if (score >= 3) {
+                resultElement.textContent = "Not bad! But you need to learn more about your college.";
+            } else {
+                resultElement.textContent = "You need to learn more about your college. Keep exploring!";
+            }
+        }
+
+        document.getElementById("next-btn").addEventListener("click", nextQuestion);
+        document.getElementById("submit-btn").addEventListener("click", submitQuiz);
+
+        loadQuestion();
+        AOS.init();
+    </script>
+</body>
+</html>
